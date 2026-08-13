@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מפתח השפות | המילון המשולב ללימוד אנגלית</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="מפתח השפות - הדרך הטובה ביותר ללמוד אנגלית בקלות. גלו את הקשר בין אנגלית לעברית, חקרו את מקור השפות, ולמדו בעזרת אסוציאציות למילים באנגלית שמחברות את שתי השפות למקור אחד.">
+    <meta name="keywords" content="ללמוד אנגלית בקלות, קשר בין אנגלית לעברית, מקור לשפה האנגלית, אסוציאציות למילים באנגלית, מקור השפות, מפתח השפות, מילון אטימולוגי">
+    <meta name="author" content="מפתח השפות">
+    
+    <!-- Open Graph (Facebook, WhatsApp sharing) -->
+    <meta property="og:title" content="מפתח השפות | גלו את הקשר בין אנגלית לעברית">
+    <meta property="og:description" content="ללמוד אנגלית בקלות מעולם לא היה מרתק יותר. גלו את מקור השפות ואת האסוציאציות שמחברות כל מילה באנגלית לשורש העברי שלה.">
+    <meta property="og:type" content="website">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="navigateTo('search')">
+                <i class="fa-solid fa-language"></i> מפתח השפות
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="navigateTo('search')" id="link-search" class="active">חיפוש מילון</a></li>
+                    <li><a href="#" onclick="navigateTo('intro')" id="link-intro">מבוא</a></li>
+                    <li><a href="#" onclick="navigateTo('memory')" id="link-memory">איך לזכור</a></li>
+                    <li><a href="#" onclick="navigateTo('practice')" id="link-practice">למעשה</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar for explained words -->
+        <aside class="sidebar" id="wordListSidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-book-open"></i> מילים במילון</h3>
+                <button class="close-sidebar-btn" onclick="toggleSidebar()"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div class="sidebar-stats">
+                <div class="stat-question" onclick="toggleStatAnswer('statAnswer1')">
+                    <i class="fa-solid fa-circle-question"></i> כמה מילים יש במילון?
+                </div>
+                <div class="stat-answer" id="statAnswer1" style="display: none;">
+                    כרגע יש במילון <strong id="totalWordsCount">...</strong> מילים מצויות.
+                </div>
+                <div class="stat-question" onclick="toggleStatAnswer('statAnswer2')" style="margin-top: 1rem;">
+                    <i class="fa-solid fa-circle-question"></i> מה עם שאר המילים?
+                </div>
+                <div class="stat-answer" id="statAnswer2" style="display: none;">
+                    מצאתי קשר כמעט לכל המילים באנגלית והינם כרגע לפני שלב העריכה.
+                </div>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" id="sidebarSearchInput" placeholder="סינון ברשימה..." onkeyup="filterSidebar()">
+            </div>
+            <ul id="sidebarWordList" class="sidebar-word-list">
+                <!-- Word list injected by JS -->
+            </ul>
+        </aside>
+
+        <main class="main-content" style="position: relative;">
+        <!-- Search Page -->
+        <section id="page-search" class="page active">
+            <div class="hero">
+                <!-- Feedback Widget -->
+                <div class="feedback-widget-wrapper">
+                    <div class="feedback-widget">
+                        <h3><i class="fa-regular fa-comment-dots"></i> נשמח למשוב!</h3>
+                        <p>מצאתם טעות? חשבתם על רעיון מעניין? נשמח לשמוע מכם ולהשתפר.</p>
+                        <a href="#" target="_blank" class="feedback-btn" id="feedbackFormLink">לפתיחת הטופס</a>
+                    </div>
+                </div>
+
+                <h1>גלה את הקשר בין השפות</h1>
+                <h2>ולמד אנגלית בקלות ובמהירות</h2>
+                <p>הקלד מילה באנגלית וגלה את פירושה, מקורה, וכיצד היא קשורה לשפה העברית.</p>
+                
+                <div class="sticky-note-wrapper">
+                    <div class="sticky-note">
+                        <i class="fa-solid fa-thumbtack pin-icon"></i>
+                        <span><strong>שימו לב:</strong> קשה מאוד להבין את ההסברים במילון ללא <a href="#" onclick="navigateTo('intro')">קריאת המבוא</a> תחילה!</span>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="הקלד מילה באנגלית לחיפוש..." autocomplete="off">
+                </div>
+            </div>
+            
+            <div class="results-info" id="resultsInfo">
+                <!-- Will show "Found X results" -->
+            </div>
+
+            <div class="results-container" id="resultsContainer">
+                <!-- Cards will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Intro Page -->
+        <section id="page-intro" class="page">
+            <div class="content-box">
+                <h2>מבוא: איך השפות קשורות?</h2>
+                <div class='text-content'>
+<p>הדברים שבהמשך חלקם יהיו מעט מסובכים בקריאה ראשונה, ובאמת אין צורך לזכור את כל הפרטים עכשיו כיון שהם יחזרו על עצמם אין ספור פעמים תוך כדי לימוד המילים, צריך רק לעבור עליהם ולהבינם היטב, ולעת הצורך לחזור על קטע הרלוונטי הנצרך להבנת העניין.</p>
+<p>אם נבחן את הדמיון וההבדל בין שפות דומות ( כמו אנגלית מול גרמנית, רוסית מול אוקראינית או עברית מול ארמית וכדומה) נוכל להגדיר את המעבר שביניהם במילה אחת,  <strong>בלבול</strong>. כלומר שבכדי להפוך לדוגמא רוסית לאוקראינית, צריך לבלבל את הרוסית, וכן להפך. ביחס לעברית לדוגמא, ארמית היא בלבול שלה.</p>
+<p>ננתח את התופעה הזאת ונמצא בה כמה הבחנות :</p>
+<p style='margin-right: 20px;'><strong>א.</strong>   ראשית כל מתבלבלות <strong>התנועות</strong> שהן הכי חלשות בשפה ומשתנות אפי' בשפה עצמה, לדוגמא בין זמן עבר להווה (עשה-עשיתי), לכן כאשר נחפש דמיון לא נקפיד כלל על דמיון הניקוד (או עיצורים הדומים לניקוד כמו א או ע) וכל הריכוז יהיה על עיצורי השורש,   <strong>peace</strong>  מבחינתינו זה <strong>פיוס</strong> אע''פ שאינו זהה באותיות הניקוד.</p>
+<p style='margin-right: 20px;'><strong>ב.</strong>   <strong>העיצורים</strong> מתחלפים לדומים להם בהגייה, ס<strong>ב</strong>תא תשתנה לס<strong>פ</strong>תא, טוב לטוף.  בהמשך יובהר נושא זה בהרחבה.</p>
+<p style='margin-right: 20px;'><strong>ג.</strong>   מתחלף <strong>סדר</strong> של אותיות, מ-סדר נהיה רדס (דוגמא לא קיימת).</p>
+<p style='margin-right: 20px;'><strong>ד.</strong>   מילה יוצאת <strong>מתחום</strong> השייך לה ונכנסת לתחום אחר, כגון לקרוא לאדם זקן - עתיק או ישן, שזה מילים שמתארים חפצים ולא אדם.</p>
+<p style='margin-right: 20px;'><strong>ה.</strong>   הבלבול הכי גדול זה להחליף בין מילים שיש להם ענין <strong>משותף</strong>, כגון לקרוא ללבנה טיט, כי שניהם הם מרכיבים את הבנין.</p>
+<p>איזה אותיות מתחלפות? נוכל לבנות את התשובה על כמה יסודות :</p>
+<p style='margin-right: 20px;'><strong>א.</strong>   ראשית כל דמיון בהגייה, ב נשמעת מאוד דומה ל-פ לכן הרבה אומרים טוף במקום טוב.</p>
+<p style='margin-right: 20px;'><strong>ב.</strong>   הגייה של אותיות האנגליות, לדוגמא - d  מבוטאת כמו ד ופעמים כמו ט, זה בהחלט סיבה להחליף d  ב-t.</p>
+<p style='margin-right: 20px;'><strong>ג.</strong>   שינוי בין שפות דומות, נעקוב איך משתנית המילה כאשר היא עוברת מעברית לארמית, לדוגמא -זהב נהיה דהבא, זה נהיה דא או דין, נלמד מזה ש-ז מתחלף ב-ד. וכן איך אומרים אותו שם בשפות שונות כמו א<strong>ת</strong>יופיה בעברית לעומת א<strong>פ</strong>יופיה ברוסית, א<strong>ת</strong>ונה בירת יוון בעברית לעומת א<strong>פ</strong>יני ברוסית - נוכל ללמוד ש-<strong>ת </strong>מתחלף ב-<strong>פ</strong>.</p>
+<p style='margin-right: 20px;'><strong>ד.</strong>   הברה של אותה אות ע''י עדות שונות, כמו <strong>ג</strong> שנקראת בדומה ל-<strong>ר </strong>לחלק מעדות, גם מזה נוכל ללמוד מה מתחלף.</p>
+<p style='margin-right: 20px;'><strong>ה.</strong>   טעויות של ילדים קטנים.</p>
+<p>ויש דרגות בדמיון בין האותיות, ישנם קרובים בדרגה ראשונה וישנם מאותה משפחה וישנם שצריכים כמה גלגולים. כמובן המטרה היא למצוא דמיון הגדול ביותר אלא אם כן מוכרח אחרת.</p>
+<p>נסדר את האותיות לפי משפחות ונציין מי מהם אחים בדרגה ראשונה. <strong class="highlight">( סימן  - /  פירושו מתחלף, לדוגמא ב/פ פירושו ב מתחלף ב-פ)</strong>. תחילה נערוך אותם בדרך כלל ואח''כ עם הסבר בהרחבה.</p>
+<p>א/ה/ע/ח -משפחה     א/ה/ע   ה/ח  - אחים.</p>
+<p>ב/בּ/פּ/פ/ו/וּ - משפחה   ב/בּ   פ/פּ   בּ/פּ   ב/פ    ו/וּ/וֹ  - אחים.</p>
+<p>ג׳/ג/כּ/כ/ה   - משפחה,   ג/כּ   כ/כּ    ג/ג׳   ג/ה - אחים.</p>
+<p>ד/ז/ס, שׂ/שׁ /תּ/ת/צ/צ'/ז'  -משפחה מורחבת,       ד/ז  ד/ט   ז/ס  שׁ/שׂ   שׁ/ת   צ/ס   תּ/ת  צ/צ'   ז/ז'  -    אחים.</p>
+<p>י/j/ג   וכן  י/ ִ</p>
+<p>כּ/ס</p>
+<p>ל/ר</p>
+<p>מ/נ</p>
+<p>נ/ל  - נדיר.</p>
+<p>פ/ת</p>
+<p>צ/ע   צ/ט</p>
+<p>ר/ל   ר/ח  ר/ג.</p>
+<p>עד כאן דרך כלל, מעתה נבאר את הדברים.</p>
+<h3>■ א/ה/ע/ח - משפחה     א/ה/ע   ה/ח  - אחים.</h3>
+<p>א/ה/ע - דומים בהגייה, מי שלא מקפיד על הדקדוק אומר את כולם כ-א, אות ע אינה קיימת באנגלית לכן או תתחלף ב-א או ה, או תעלם לגמרי. לכן מילה <strong>פער</strong> (מרחק) מאבדת ע ונהית <strong>far</strong> - רחוק.</p>
+<p>ה/ח - אות ח אינה קיימת באנגלית לכן בדרך כלל תתחלף ב-h, כגון חור-hole   או תעלם לגמרי כגון <strong>bat</strong>  - ח<strong>בט</strong>.</p>
+<h3>■ ב/בּ/פּ/פ/ו/וּ - משפחה   ב/בּ   פ/פּ   בּ/פּ   ב/פ    ו/וּ/וֹ  - אחים.</h3>
+<p>ב/בּ -כבר בעברית זה אותה אות ומתחלפת בהטיות שונות כגון <strong>בּ</strong>ית בּ<strong>ב</strong>ית.</p>
+<p>פ/פּ - כנ''ל.</p>
+<p>בּ/פּ - דומות בהגייה כמו <strong>פ</strong>צצה-<strong>ב</strong>צצה.</p>
+<p>ב/פ -  דומים בהגייה כמו ס<strong>ב</strong>תא - ס<strong>פ</strong>תא, טוב-טוף, f מבוטאת גם פ כגון off   וגם ב כגון of.</p>
+<p>ו/וּ/וֹ - לא לחינם משמשת ו ל-וּ, והסיבה לכך הואיל והם ודומים בהגייה, במיוחד אם נהגה את-ו כמו עדות שמבטאים אותה כמו שמבטאים w,     a<strong>u</strong>to ברוסית נהפכת ל-a<strong>V</strong>to   והרבה מילים כיוצא, דבר שמראה שהם מתחלפים, מסיבה זו שוֹר ברבים נהיה שוורים  ושוּק נהיה שווקים.</p>
+<h3>■ ג׳/ג/כּ/כ/ה   - משפחה,   ג/כּ   כ/כּ    ג/ג׳   ג/ה - אחים.</h3>
+<p>ג/כּ - הם קרובים בהגייה, לכן <strong>ג</strong>מל נהפך ל -<strong>C</strong>amel   שזה ודאי אותה מילה, עוד דוגמא - סו<strong>כ</strong><strong>ּ</strong>ר באנגלית suGar   וברוסית סכר - דבר שמראה קשר הדוק בין האותיות.</p>
+<p>כ/כּ - מתחלף כבר בעברית וכמובן דומה בהגייה.</p>
+<p>ג/ג' - גם יש עדות מבטאים ג כ-ג', גם אות g  יש לה שתי היגיות שהם ג ו-ג' שזה גשר להחליף ביניהם.  ממילא זה גם סיבה להחליף ג ב-ד כיון ש-ג' כוללת ד (ג'=דז').</p>
+<p>ג/ה - דומים בהגייה, רוסים בהעדר h  בשפה שלהם הופכים אותה ל-ג, כהן נהיה כוגן, היטלר -גיטלר, העולים מרוסיה תמהים למה משפחת גיטלר לא מחליפה דחוף את שם משפחה שלהם.</p>
+<p>ה/e   כיון ש-e   מחליפה את ה בסדר א-ב (אבגד<strong>ה</strong>-abcd<strong>e</strong>, ראה בענין זה לקמן), שימו לב הֶא~e.</p>
+<h3>■ ד/ז/ס, שׂ/שׁ/תּ/ת/צ/צ'/ז'  -משפחה מורחבת,       ד/ז  ד/ט   ז/ס  שׁ/שׂ   שׁ/ת   צ/ס   תּ/ת  צ/צ'   ז/ז'  -    אחים.</h3>
+<p>ד/ז - ד יש עדות שמבטאים אותה כ-ז ובאמת יש ביניהם דמיון גדול בהגייה, וכן נראה מארמית,<strong>ז</strong>הב נהיה <strong>ד</strong>הבא, זה -דא, זכר -דכרא, זאב- דיבה בפרסית או עירקית, וכן נראה מהגיית-th  שפעמים מבוטאת קרוב ל-ד ופעמים ל-ז.</p>
+<p>ד/ט  -    כי קרובים בהגייה, וכן באנגלית t  מבוטאת כ-ד וכ-ט וכן d.</p>
+<p>ז/ס  - s  הגייתה גם ס גם ז כי הגייתן דומה.</p>
+<p>שׁ/שׂ -  זה אותה אות בעברית, והגייתן קרובה, שלמה נהפך בשפות אחרות לסלמון, ישעיה לאיסיה, שמעון לסימון, משה ל - mo<strong>s</strong>es,  גם שׁ הנכתבת sh   שימו לב שכוללת s.</p>
+<p>ש/ת - אותיות אלו מתחלפות כסדר במעבר מעברית לארמית - א<strong>ש</strong>ה נהיית א<strong>ת</strong>תא, <strong>ש</strong>קל- <strong>ת</strong>קל, שור- תורא, שלש - תלתא.</p>
+<p>ס/צ - יש עדות שמבטאים צ דומה ל-ס, גם לפי הגייה הנהוגה צ כוללת ס שהרי צ=טס, c   מבטאים אותה כ-ס וגם כ-צ.</p>
+<p>תּ/ת - כוונתי ל-ת לפי הגייה אשכנזית, ומתחלפים מחמת דמיון בהגייה ומסיבה זו הם אותה אות.</p>
+<p>צ'/צ - דומים בהגייה, לכן בחרו לשים ' דווקא ל-צ לציין אות הזאת.</p>
+<p>ז/ז' - כנ''ל.</p>
+<h3>■ י/j/ג    וכן  י/ ִ</h3>
+<p>י/j/ג   -   ידוע ששמות הכוללים י, כמו ירושלים יעקב, בהגיעם לאנגלית, י נהפכת ל-j  Jerusalem Jacob)), תראו גם בסדר א-ב עומדת j   במקום י.   אע''פ שלכאורה אינם דומים בהגייה, שמעתי ילד שמחליף ביניהם ואומר במקום יש ג'ש ועוד כיוצא. ומכאן פתח להחליף י ב-ג שהרי ג' קרובה ל-ג.</p>
+<p>י/ ִ - לא לחינם חיריק מלא משתמש ב-י אלא מחמת הדמיון הגדול ביניהם בהגייה.</p>
+<p class="bullet-item"><span class="bullet-title">■ כ/ס -</span> הסיבה נעוצה באות c, שהגייתה גם ק וגם ס, אות זו היא הגשר להחלפה זו.</p>
+<p class="bullet-item"><span class="bullet-title">■ ל/ר -</span> כמעט כל ילד במקום ריש אומר ליש.</p>
+<p class="bullet-item"><span class="bullet-title">■ מ/נ -</span> רואים את זה מארמית שסיומת ים, רב<strong>ים</strong>, נהפכת ל-ין, וכן רואים מאנגלית, תחילית  co<strong>m</strong>  משתנת ל- ani<strong>m</strong>al =ani<strong>n</strong>al     co<strong>n</strong>.</p>
+<p class="bullet-item"><span class="bullet-title">■ נ/ל -</span> נדיר, פעמים מתחלף בלשון המשנה, לס<strong>ל</strong>ק=לס<strong>נ</strong>ק, סיומת - ly באנגלת, slowly, מקבילה לסיומת -no  ברוסית, גם ל וגם ן משמשים כתוספת למילה.</p>
+<p class="bullet-item"><span class="bullet-title">■ פ/ת -</span> דבר זה מתגלה משינוי בשמות בין השפות - אתיו<strong>פ</strong>יה בעברית מול אפיו<strong>פ</strong>יה ברוסית ואנגלית, א<strong>ת</strong>ונה - א<strong>פ</strong>יני.</p>
+<p class="bullet-item"><span class="bullet-title">■ צ/ע -</span> מתגלה מארמית - בי<strong>צ</strong>ה נהית בי<strong>ע</strong>א, ע<strong>ץ</strong>- א<strong>ע</strong>א, צאן - ענא.</p>
+<p class="bullet-item"><span class="bullet-title">■ צ/ט -</span> גם זה אנו מכירים מארמית, לדוגמא ר<strong>ץ </strong>נהיה רה<strong>ט</strong>, והסיבה לכך מפני ש - צ כוללת ט שהרי צ=<strong>ט</strong>ס.</p>
+<p class="bullet-item"><span class="bullet-title">■ ר/ח -</span> דבר זה למדנו מאיך שמבטאים  הצרפתים את-ר, ואמת שהאותיות דומות בהגייתן.</p>
+<p class="bullet-item"><span class="bullet-title">■ ר/ג -</span> יש עדות שמבטאים ג, דומה ל-ר.</p>
+
+<button onclick="document.getElementById('babel-text').style.display = document.getElementById('babel-text').style.display === 'none' ? 'block' : 'none'" style="margin-top: 2rem; padding: 0.8rem 1.5rem; background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: bold; width: 100%; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    ומה באמת שורש התופעה הזו? <i class="fa-solid fa-chevron-down"></i>
+</button>
+<div id="babel-text" style="display: none; margin-top: 1rem; padding: 1.5rem; background-color: var(--sub-header-bg); border-radius: 8px; border-right: 4px solid var(--primary-color); line-height: 1.6;">
+<p>נתבונן במקראות המתארות תקופה לפני יותר מארבעת אלפים שנה.</p>
+<p>בראשית פרק יא: <em>"ויהי כל הארץ שפה אחת ודברים אחדים"</em>. ופירש רש''י שפה אחת פירושו לשון הקודש. <em>"ויאמרו הבה נבנה לנו עיר ומגדל וראשו בשמים וגו'"</em>. כתוב כאן שבתקופת בנין מגדל בבל כל האנושות דברה בשפה אחת והיא לשון הקודש.</p>
+<p>ובפסוקים בהמשך כתוב: <em>"ויאמר ה'... הבה נרדה ונבלה שם שפתם אשר לא ישמעו איש שפת רעהו... על כן קרא שמה בבל כי שם בלל ה' שפת כל הארץ וגו'"</em>, מומלץ לקרוא במקור בפנים.</p>
+<p>אם נדייק בפסוקים נראה שלא כתוב שהוא המציא להם שפות חדשות אלא רק בלל להם את שפתם כלומר ערבב ובלבל עד שהפסיקו להבין אחד את השני, אבל בעצם שפות שנוצרו הם בלבול של שפה הראשונה וניתן לזהות אותה ע''י התבוננות וניתוח השפות.</p>
+<p>ובאמת בתחילה לא הייתי אפי' מדמיין ששייך בשפה רחוקה מעברית כמו אנגלית להכיר את השורשים המקוריים וחשבתי שקשר כבר נמחק ברוב השנים, אבל כאשר ניגשתי אל המלאכה נדהמתי לראות שהרבה מאוד מילים בשפה האנגלית צועקים בבירור על מקורם העברי ועוד הרבה ניתן לראותו בהתבוננות קלה והשאר אם מחפשים מוצאים גם המקור שלהם.</p>
+<p>מאחל לכם קריאה ולימוד מהנה!</p>
+</div>
+</div>
+            </div>
+        </section>
+
+        <!-- Memory Page -->
+        <section id="page-memory" class="page">
+            <div class="content-box">
+                <h2>איך לזכור את המילים בקלות?</h2>
+                <div class='text-content'>
+<p>אין לי ספק שגם אתם רוצים ללמוד אנגלית בקלות ובמהירות.</p>
+<p>אבל יש כל כך הרבה מילים, איך זוכרים את הצירופי האותיות הלא מוכרות האלו ?</p>
+<p>ובכן... בזה תוכלו להיעזר בחיבור שלנו.</p>
+<p>אבל האם זה אכן באמת עובד?</p>
+<p>אתם מוזמנים כאן ועכשיו לעשות מבדק קצר.</p>
+<p>לפניכם רשימה של מילים באנגלית עם התרגום שלהן, תקראו אותה <strong>פעם אחת בלבד</strong> ותנסו לזכור את התרגום של עשרים מילים הלא ידועות לכם מתוכה. (אם המילים ידועות לכם תעשו מבדק זה על חבר שלא בקיא כל כך באנגלית)</p>
+<table class='memory-table'>
+  <tr>
+    <td>נקב</td>
+    <td>hole</td>
+  </tr>
+  <tr>
+    <td>סבל</td>
+    <td>suffer</td>
+  </tr>
+  <tr>
+    <td>כיפר</td>
+    <td>atone</td>
+  </tr>
+  <tr>
+    <td>גג</td>
+    <td>roof</td>
+  </tr>
+  <tr>
+    <td>לשרת</td>
+    <td>serve</td>
+  </tr>
+  <tr>
+    <td>סירב</td>
+    <td>refuse</td>
+  </tr>
+  <tr>
+    <td>להוסיף</td>
+    <td>add</td>
+  </tr>
+  <tr>
+    <td>אפר</td>
+    <td>ash</td>
+  </tr>
+  <tr>
+    <td>התרחש</td>
+    <td>occure</td>
+  </tr>
+  <tr>
+    <td>ללכוד</td>
+    <td>trap</td>
+  </tr>
+  <tr>
+    <td>כאב</td>
+    <td>ache</td>
+  </tr>
+  <tr>
+    <td>כלא</td>
+    <td>jail</td>
+  </tr>
+  <tr>
+    <td>מסלול</td>
+    <td>path</td>
+  </tr>
+  <tr>
+    <td>ברז</td>
+    <td>tap</td>
+  </tr>
+  <tr>
+    <td>פינה</td>
+    <td>corner</td>
+  </tr>
+  <tr>
+    <td>מלחמה</td>
+    <td>war</td>
+  </tr>
+  <tr>
+    <td>שלם</td>
+    <td>whole</td>
+  </tr>
+  <tr>
+    <td>ציבורי</td>
+    <td>common</td>
+  </tr>
+  <tr>
+    <td>שלום</td>
+    <td>peace</td>
+  </tr>
+  <tr>
+    <td>גבעה</td>
+    <td>hill</td>
+  </tr>
+  <tr>
+    <td>קרן</td>
+    <td>horn</td>
+  </tr>
+  <tr>
+    <td>פרסה, טלף</td>
+    <td>hoof</td>
+  </tr>
+  <tr>
+    <td>דלת</td>
+    <td>door</td>
+  </tr>
+  <tr>
+    <td>נמוך</td>
+    <td>low</td>
+  </tr>
+  <tr>
+    <td>מטבע</td>
+    <td>coin</td>
+  </tr>
+  <tr>
+    <td>פראי</td>
+    <td>feral</td>
+  </tr>
+  <tr>
+    <td>חתך</td>
+    <td>cut</td>
+  </tr>
+  <tr>
+    <td>גמל</td>
+    <td>camel</td>
+  </tr>
+  <tr>
+    <td>לראות</td>
+    <td>vide</td>
+  </tr>
+  <tr>
+    <td>מעלה</td>
+    <td>degree</td>
+  </tr>
+  <tr>
+    <td>גנב</td>
+    <td>steal</td>
+  </tr>
+  <tr>
+    <td>פר</td>
+    <td>bull</td>
+  </tr>
+  <tr>
+    <td>לכסות</td>
+    <td>cover</td>
+  </tr>
+  <tr>
+    <td>שמן</td>
+    <td>fat</td>
+  </tr>
+  <tr>
+    <td>לקבור</td>
+    <td>bury</td>
+  </tr>
+  <tr>
+    <td>אבנית</td>
+    <td>scale</td>
+  </tr>
+  <tr>
+    <td>הזמנה (למשפט)</td>
+    <td>summon</td>
+  </tr>
+  <tr>
+    <td>שבר</td>
+    <td>shatter</td>
+  </tr>
+  <tr>
+    <td>קדח</td>
+    <td>bore</td>
+  </tr>
+  <tr>
+    <td>כנות</td>
+    <td>honesty</td>
+  </tr>
+  <tr>
+    <td>מתנה</td>
+    <td>gift</td>
+  </tr>
+  <tr>
+    <td>קדוש</td>
+    <td>holy</td>
+  </tr>
+  <tr>
+    <td>אכיל</td>
+    <td>edible</td>
+  </tr>
+  <tr>
+    <td>לנבוח</td>
+    <td>bark</td>
+  </tr>
+</table>
+<p>כעת תרגמו את המילים ותבדקו כמה מתוכן נקלטו בזיכרון.</p>
+<table class='memory-table'>
+  <tr>
+    <td>hole</td>
+  </tr>
+  <tr>
+    <td>suffer</td>
+  </tr>
+  <tr>
+    <td>atone</td>
+  </tr>
+  <tr>
+    <td>roof</td>
+  </tr>
+  <tr>
+    <td>serve</td>
+  </tr>
+  <tr>
+    <td>refuse</td>
+  </tr>
+  <tr>
+    <td>add</td>
+  </tr>
+  <tr>
+    <td>ash</td>
+  </tr>
+  <tr>
+    <td>occure</td>
+  </tr>
+  <tr>
+    <td>trap</td>
+  </tr>
+  <tr>
+    <td>ache</td>
+  </tr>
+  <tr>
+    <td>jail</td>
+  </tr>
+  <tr>
+    <td>path</td>
+  </tr>
+  <tr>
+    <td>tap</td>
+  </tr>
+  <tr>
+    <td>corner</td>
+  </tr>
+  <tr>
+    <td>war</td>
+  </tr>
+  <tr>
+    <td>whole</td>
+  </tr>
+  <tr>
+    <td>common</td>
+  </tr>
+  <tr>
+    <td>peace</td>
+  </tr>
+  <tr>
+    <td>hill</td>
+  </tr>
+  <tr>
+    <td>horn</td>
+  </tr>
+  <tr>
+    <td>hoof</td>
+  </tr>
+  <tr>
+    <td>door</td>
+  </tr>
+  <tr>
+    <td>low</td>
+  </tr>
+  <tr>
+    <td>coin</td>
+  </tr>
+  <tr>
+    <td>feral</td>
+  </tr>
+  <tr>
+    <td>cut</td>
+  </tr>
+  <tr>
+    <td>camel</td>
+  </tr>
+  <tr>
+    <td>vide</td>
+  </tr>
+  <tr>
+    <td>degree</td>
+  </tr>
+  <tr>
+    <td>steal</td>
+  </tr>
+  <tr>
+    <td>bull</td>
+  </tr>
+  <tr>
+    <td>cover</td>
+  </tr>
+  <tr>
+    <td>fat</td>
+  </tr>
+  <tr>
+    <td>bury</td>
+  </tr>
+  <tr>
+    <td>scale</td>
+  </tr>
+  <tr>
+    <td>summon</td>
+  </tr>
+  <tr>
+    <td>shatter</td>
+  </tr>
+  <tr>
+    <td>bore</td>
+  </tr>
+  <tr>
+    <td>honesty</td>
+  </tr>
+  <tr>
+    <td>gift</td>
+  </tr>
+  <tr>
+    <td>holy</td>
+  </tr>
+  <tr>
+    <td>edible</td>
+  </tr>
+  <tr>
+    <td>bark</td>
+  </tr>
+</table>
+<p>מצויין, ערכתם כעת בדיקה קטנה לזיכרון הטבעי שלכם בלא שימוש בתחבולות וכלים המסייעות לו.</p>
+<p>אבל אכן באמת קיימים פטנטים חזקים מאוד שעוזרים לזכור.  נתרכז בכלי הכי בסיסי בזיכרון שפועל כעין דבק, שמדביק את המילים לזיכרון לבל ינשרו ממנו. והוא <strong>שבכדי לזכור דבר חדש יש לקושרו לדבר ידוע היטב ומחובר כבר חזק בזיכרון</strong>. שימו לב להגדרה זו, היא יסוד לכל ההמשך.</p>
+<p>נציג את השיטה באופן כללי.</p>
+<p>כאשר לומדים מילה חדשה יש לקושרה למילה ידועה (לא משנה באיזה שפה) ואותה מילה ידועה תזכיר לנו את המילה החדשה.</p>
+<p>איך מקשרים ?</p>
+<p>יש לנו שתי דרכים:  קישור <strong>אמיתי</strong> וקישור <strong>מלאכותי</strong>. ונסביר, קיים דמיון אמיתי בין עברית לאנגלית, ברגע שמגלים את הדמיון נוצר קשר אסוציאטיבי בין המילים וע''י כך מתחברת גם מילה החדשה לזיכרון. לדוגמא במילה  earth - ארץ, בהתבוננות קלה נוכל לזהות את הדמיון לתרגום שלה, שהן כמעט זהות בהגייתן.  זה קישור אמיתי.</p>
+<p><u>קישור מלאכותי</u> הוא דרך לקשר בין מילים שאין קשר ביניהן, ע''י דמיון מקרי, לדוגמא אם באנו לזכור מילה  <strong>drag</strong> -- לסחוב, לגרור, ניתן לדמיין איש גורר שק מלא על מ<strong>דרג</strong>ות (שימו לב לדמיון אותיות המודגשות). תמונה זו יצרה קשר בין המילים אע''פ שאין שום קשר בין לגרור למדרגות. הדרך זו היא טובה, אבל גם מאוד אינדיבידואלית שכל אחד יש לו דברים שלו שהוא מכיר וסגנון שונה איך לקשר, לכן בחיבור שלפניכם התרכזנו בעיקר בדרך הראשונה שהיא קישור אמיתי שלא תלוי בשינוי בין בני אדם, אמנם יובאו בחיבור גם מעט מקישורים מלאכותיים.</p>
+<p>עד כאן בארנו רעיון הכללי והוא כבר יעזור לנו למילים שקראנו למעלה. נחזור אל המילים ונראה הקשר שלהם לעברית.</p>
+<div class='example-box'><span class='example-word'>נקב  hole</span><br><span class="example-explanation">אם נחליף  L  של hoLe   ל-R  שהם אותיות מאוד דומות בהגייה וכמעט כל תינוק מחליף ביניהם, נקבל <strong>hor</strong><strong>   </strong>  = <strong>חור</strong> = נקב.</span></div>
+<div class='example-box'><span class='example-word'>סבל suffer</span><br><span class="example-explanation">נתעלם מאותיות הניקוד, קיבלנו שורש - <strong>SFR</strong>, ע''י שינוי קל שנחליף F   ל - V שהם קרובים מאוד בהגייה, וR -  נחליף ל L -   כדלעיל נקבל <strong>svl</strong><strong>  </strong> = סבל.</span></div>
+<div class='example-box'><span class='example-word'>כיפר  atone</span><br><span class="example-explanation">קריאתו כמעט ''אתון'', בלעם הרביץ במקל לאתון שלו ואמר ''אתון זה כפר<strong>ת</strong> עוונות ''. זה חיבור מלאכותי ע''י בדיחה.</span></div>
+<div class='example-box'><span class='example-word'>גג  roof</span><br><span class="example-explanation">על הגג יש <strong>רעפ</strong>ים אם נתעלם מהניקוד ונתרכז בעיקר השרש נקבל <strong>רפ</strong> = RooF  <strong>rf</strong></span></div>
+<div class='example-box'><span class='example-word'>לשרת  serve</span><br><span class="example-explanation">מילה אנגלית מקבילה לחלק המודגש של מילה <u><strong>שרו</strong></u>ת, איך ?   ש=s    ר=r, ו (שרות) נקראת גם כמו v.</span></div>
+<div class='example-box'><span class='example-word'>סירב</span><br><span class="example-explanation">refuse     ננתח את המילה,    refuse   פירוש של תחילית - re   הוא חזרה, fuse   שורשו <strong>fs</strong>  זהה לעיקר השורש של מילה א<strong>פס</strong> שהוא <strong>פס</strong>, מעתה הקשר ברור, להחזיר אפס = לסרב, כשאתה מבקש משהו והוא מחזיר לך אפס זה אומר שהוא סירב.</span></div>
+<div class='example-box'><span class='example-word'>להוסיף  add</span><br><span class="example-explanation">בטוחני ששמתם לב ש   <strong>add</strong> -מאוד דומה ל <strong>עוד</strong>, ומי שרוצה תוספת אומר עוד עוד.</span></div>
+<div class='example-box'><span class='example-word'>אפר  ash</span><br><span class="example-explanation">הקשר מבואר,  בעברית היה <strong>אש </strong>  ועד שהגיע לאנגלית כבר נהיה ash  -  (אפר).</span></div>
+<div class='example-box'><span class='example-word'>התרחש  occure</span><br><span class="example-explanation">שימו לב לשורש של מילה האנגלית שהיא <strong>cr</strong>   והיא מקבילה למילה <strong>קר</strong>ה (התרחש) בעלת שורש זהה - (קר).</span></div>
+<div class='example-box'><span class='example-word'>ללכוד  trap</span><br><span class="example-explanation">TRaP  שורשו <strong>טרפ</strong>, לטרוף מישהו, פעולה זאת כוללת בדרך כלל גם <u>לכידה</u>.</span></div>
+<div class='example-box'><span class='example-word'>כאב  ache</span><br><span class="example-explanation">כל אחד יודע שאם כואב אומרים <strong>אַך</strong>  (ache).</span></div>
+<div class='example-box'><span class='example-word'>כלא  jail</span><br><span class="example-explanation">קריאתו  ג'ייל, נשנה מעט, יצא גייל, ונחליף-ג ל-כ שהם באמת אותיות מאוד דומות בהגייתן, יצא <strong>כייל </strong>, כמעט <strong>כלא</strong>.</span></div>
+<div class='example-box'><span class='example-word'>מסלול  path</span><br><span class="example-explanation">מה זה מסלול ? זה בעצם פס ( (path.</span></div>
+<div class='example-box'><span class='example-word'>ברז  tap</span><br><span class="example-explanation">ברז זה דבר מ<u>טפ</u>טף ( tap tap ) אם לא סוגרים אותו היטב.</span></div>
+<div class='example-box'><span class='example-word'>פינה corner</span><br><span class="example-explanation">פינה נקראת גם <u><strong>קרן</strong></u> זוית וזה השורש של מילה CoRNer.</span></div>
+<div class='example-box'><span class='example-word'>מלחמה  war</span><br><span class="example-explanation">מלחמה זה <u><strong>ריב</strong></u><strong> </strong>במימדים גדולים, ואם תהפכו את המילה <strong>war</strong> תקבלו <u><strong>רב</strong></u>.</span></div>
+<div class='example-box'><span class='example-word'>שלם  whole</span><br><span class="example-explanation">קריאתו -hole, דבר שמראה ש -h   עיקרית ו-w  טפלה, <strong>הול</strong> מאוד דומה ל <u><strong>כל</strong></u>, הנה קיבלנו את הדמיון שהרי דבר ב<strong>שלימות</strong>ו זה <strong>כל</strong> הדבר.</span></div>
+<div class='example-box'><span class='example-word'>ציבורי common</span><br><span class="example-explanation">נחליש את הגיית ה-<strong>c</strong>  נקבל <u>המון </u>hommon) ), ודבר <strong>ציבור</strong><strong>י</strong> זה דבר ששייך ל<u><strong>המון</strong></u> אנשים.</span></div>
+<div class='example-box'><span class='example-word'>שלום peace</span><br><span class="example-explanation">כאשר יש <u>פיוס</u> זה שלום, בטוחני ששמתם לב ש - <strong>peace</strong> ו<strong>פיוס</strong> הינם כמעט זהים.</span></div>
+<div class='example-box'><span class='example-word'>גבעה hill</span><br><span class="example-explanation">שורשה של מילה hill הוא <strong>hl</strong>,   נחליף l ב-r  נקבל <strong>hr</strong>   שזה <u>הר</u>, וגבעה זה הר קטן.</span></div>
+<div class='example-box'><span class='example-word'>קרן horn</span><br><span class="example-explanation">השורש של שניהם כמעט זהה, רק שנחזק את הגיית h  ונקבל כ, נוסיף לה דגש יצא <strong>קרן</strong>.</span></div>
+<div class='example-box'><span class='example-word'>פרסה, טלף hoof</span><br><span class="example-explanation">פרסה זה דבר ש<u>חופה</u> על רגל הבהמה.</span></div>
+<div class='example-box'><span class='example-word'>דלת door</span><br><span class="example-explanation">אם נתעלם מניקוד, השורש שנקבל הוא dr,   r דומה ל-l,   קיבלנו-<strong>dl</strong>,   מצד שני עיקר השורש של <strong>דל</strong>ת הוא <u><strong>דל</strong></u> שהדלת היא דלת הקיר שאינה חוסמת לגמרי.</span></div>
+<div class='example-box'><span class='example-word'>נמוך low</span><br><span class="example-explanation">דבר נמוך הוא קטן ואותו כמעט <u>ולא  -</u><u>low</u>.</span></div>
+<div class='example-box'><span class='example-word'>מטבע coin</span><br><span class="example-explanation">מטבע זה דבר ש<strong>קונ</strong>ים איתו. תשוו  <u>קנ</u>ה - CoiN.</span></div>
+<div class='example-box'><span class='example-word'>פראי feral</span><br><span class="example-explanation">השורש זהה לחלוטין - <u>פר</u>א <strong>FER</strong>al, תוספת- al   מקבילה לתוספת -י.</span></div>
+<div class='example-box'><span class='example-word'>חתך cut</span><br><span class="example-explanation">הוא קיצור של <u><strong>חת</strong></u>ך.</span></div>
+<div class='example-box'><span class='example-word'>גמל camel</span><br><span class="example-explanation">אות- ג דומה בהגייה ל-כ ואם נחליף אותם נקבל <u>כמל</u> שהוא-<u>camel</u></span></div>
+<div class='example-box'><span class='example-word'>לראות vide</span><br><span class="example-explanation">אם נקרא את המילה לפי איך שהיא כתובה נקבל <u>וידא</u>, עתה הקשר ברור - אדם שרוצה <u>לוודא</u> צריך <u>לראות</u> את זה.</span></div>
+<div class='example-box'><span class='example-word'>מעלה degree</span><br><span class="example-explanation">DeGRee   שורשו <strong>דרג</strong> אם נשנה מעט סדר האותיות,  ו<strong>מעלות</strong> ו<strong>דרג</strong>ות זה אותו דבר.</span></div>
+<div class='example-box'><span class='example-word'>גנב  steal</span><br><span class="example-explanation">נחליף L   ב-R    נקבל שורש <strong>STR</strong>   <strong>סתר</strong>, ו<strong>גנב</strong> גונב ב<strong>סתר</strong>.</span></div>
+<div class='example-box'><span class='example-word'>פר  bull</span><br><span class="example-explanation">כאן צריך לשנות מעט את שתי האותיות  פ נחליף ב-ב הדומה לה ו-ר ב-ל, קיבלנו <strong>בל</strong> שהוא - <strong>BuL</strong>.</span></div>
+<div class='example-box'><span class='example-word'>לכסות cover</span><br><span class="example-explanation">נקרא את המילה האנגלית, קיבלנו <strong>קובר</strong>  וקבורה נעשת ע''י <strong>כיסוי</strong>.</span></div>
+<div class='example-box'><span class='example-word'>שמן  fat</span><br><span class="example-explanation">מי שמ<u>פט</u>מים אותו נהיה <u><strong>fat</strong></u>.</span></div>
+<div class='example-box'><span class='example-word'>לקבור bury</span><br><span class="example-explanation">לקבור זה לשים ב<u><strong>בור</strong></u> -<u>bur</u>y.</span></div>
+<div class='example-box'><span class='example-word'>אבנית scale</span><br><span class="example-explanation">מה זה ל<u>סקול</u> ? לזרוק על מישהו <strong>אבנים</strong>, נקטין את האבנים, נקבל <u>אבנית</u>.</span></div>
+<div class='example-box'><span class='example-word'>הזמנה (למשפט)  summon</span><br><span class="example-explanation">תחליפו s   ב-ז הדומה לה בהגייה, קיבלנו <u><strong>זמן</strong></u><u> =</u><u>summon  </u><u>.</u></span></div>
+<div class='example-box'><span class='example-word'>שבר  shatter</span><br><span class="example-explanation">ShaTTeR שורשו כמעט <strong>סתר</strong>, ל<strong>סתור</strong> ול<strong>שבור</strong> זה אותו דבר.</span></div>
+<div class='example-box'><span class='example-word'>קדח <u>bore</u></span><br><span class="example-explanation">קשה לא לשים לב שאם קודחים נהיה <u>בור</u>(נקב) במקום שקודחים.</span></div>
+<div class='example-box'><span class='example-word'>כנות honesty</span><br><span class="example-explanation">HoNesty, שימו לב לשורש המודגש שכמעט זהה לשורש של <u><strong>כנ</strong></u>ות. </span></div>
+<div class='example-box'><span class='example-word'>מתנה  gift</span><br><span class="example-explanation">מילה GiFt  נגזרת ממילה המוכרת GiVe   -   - נתן  והיא מגיע ממילה <strong>הב</strong> - תן (הבה לי בן) שהרי ג ו-ה אותיות דומות בהגייה.</span></div>
+<div class='example-box'><span class='example-word'>קדוש holy</span><br><span class="example-explanation">קדושה מעוררת <u>חיל</u> ורעדה - HoLy.</span></div>
+<div class='example-box'><span class='example-word'>אכיל <u>ed</u>i<u>ble</u></span><br><span class="example-explanation">ed =eat    לאכול, ible   כמו a<strong>bl</strong>e  כמו <strong>בר</strong> בשינוי קטן, קיבלנו <strong>בר</strong> <strong>אכילה</strong> דהיינו <strong>אכיל</strong>.</span></div>
+<div class='example-box'><span class='example-word'>לנבוח bark</span><br><span class="example-explanation">רוב הכלבים בנביחתם כוונתם שהיריב י<u><strong>ברח</strong></u>, שימו לב זה השורש של מילה BaRK   אם נחליף ח ב-כ.</span></div>
+<p>וכעת שוב תבחנו עצמכם, תרגמו לעברית את המילים.</p>
+<table class='memory-table'>
+  <tr>
+    <td>hole</td>
+  </tr>
+  <tr>
+    <td>suffer</td>
+  </tr>
+  <tr>
+    <td>atone</td>
+  </tr>
+  <tr>
+    <td>roof</td>
+  </tr>
+  <tr>
+    <td>serve</td>
+  </tr>
+  <tr>
+    <td>refuse</td>
+  </tr>
+  <tr>
+    <td>add</td>
+  </tr>
+  <tr>
+    <td>ash</td>
+  </tr>
+  <tr>
+    <td>occure</td>
+  </tr>
+  <tr>
+    <td>trap</td>
+  </tr>
+  <tr>
+    <td>ache</td>
+  </tr>
+  <tr>
+    <td>jail</td>
+  </tr>
+  <tr>
+    <td>path</td>
+  </tr>
+  <tr>
+    <td>tap</td>
+  </tr>
+  <tr>
+    <td>corner</td>
+  </tr>
+  <tr>
+    <td>war</td>
+  </tr>
+  <tr>
+    <td>whole</td>
+  </tr>
+  <tr>
+    <td>common</td>
+  </tr>
+  <tr>
+    <td>peace</td>
+  </tr>
+  <tr>
+    <td>hill</td>
+  </tr>
+  <tr>
+    <td>horn</td>
+  </tr>
+  <tr>
+    <td>hoof</td>
+  </tr>
+  <tr>
+    <td>door</td>
+  </tr>
+  <tr>
+    <td>low</td>
+  </tr>
+  <tr>
+    <td>coin</td>
+  </tr>
+  <tr>
+    <td>feral</td>
+  </tr>
+  <tr>
+    <td>cut</td>
+  </tr>
+  <tr>
+    <td>camel</td>
+  </tr>
+  <tr>
+    <td>vide</td>
+  </tr>
+  <tr>
+    <td>degree</td>
+  </tr>
+  <tr>
+    <td>steal</td>
+  </tr>
+  <tr>
+    <td>bull</td>
+  </tr>
+  <tr>
+    <td>cover</td>
+  </tr>
+  <tr>
+    <td>fat</td>
+  </tr>
+  <tr>
+    <td>bury</td>
+  </tr>
+  <tr>
+    <td>scale</td>
+  </tr>
+  <tr>
+    <td>summon</td>
+  </tr>
+  <tr>
+    <td>shatter</td>
+  </tr>
+  <tr>
+    <td>bore</td>
+  </tr>
+  <tr>
+    <td>honesty</td>
+  </tr>
+  <tr>
+    <td>gift</td>
+  </tr>
+  <tr>
+    <td>holy</td>
+  </tr>
+  <tr>
+    <td>edible</td>
+  </tr>
+  <tr>
+    <td>bark</td>
+  </tr>
+</table>
+<p>בטוחני ששמתם לב להבדל העצום.</p>
+<p>נגלה לכם סוד קטן, לא כל המילים באנגלית ממש דומים לעברית, ואם באנו לקושרם עלינו ללמוד את השיטה ברמה יותר מקצועית.</p>
+                
+                <div style="text-align: center; margin-top: 3rem; margin-bottom: 1rem;">
+                    <button class="nav-button" onclick="navigateTo('intro')">
+                        <i class="fa-solid fa-arrow-right"></i> לקריאת המבוא המלא לשיטה
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Page -->
+        <section id="page-practice" class="page">
+            <div class="content-box">
+                <h2>מה עושים באופן מעשי?</h2>
+                <div class='text-content'>
+<p>השיטה זו ניתן לשלב עם כל מסלול לימוד אחר, וניתן להשתמש בה ללא כל מסלול ולקנות אוצר המילים ע''י קריאת ספרים מעניינים, ובהגיע למילה לא מוכרת לפתוח אותה במילון, להבין מה מוצא שלה ולקשרה למילה ידועה.</p>
+<p>שימו לב, לא תמיד צריך לקשר לעברית, אם השורש מוכר כבר מתוך מילה לועזית, נשאר רק להבין את הקשר ביניהם וכבר היא נדבקת בזכרון, לדוגמא, מי שמכיר מילה basketball כמשחק נשאר לו רק לוודע ש-basket זה סל ולא צריך לקושרו לעברית, וכן מי ששולט בשפה לועזית אחרת שהיא יותר קרובה לאנגלית מאשר עברית עדיף לקשר אליה אם הוא רואה קשר, וכן יש הרבה מילים לועזיות הנמצאות בשימוש בארץ דרכם ניתן לזכור שאר המילים הנגזרות מאותו שורש.</p>
+<p>כאשר מחליטים לקשר לעברית ומשתמשים בחיבור זה, צריך ראשית כל להבין היטב את הקישור ואח''כ לחזור עליו בקיצור, מילה פלונית קשורה לפלונית כי כך וכך, ולחזור כמה פעמים כדי שאסוציאציה תקבע בזכרון, בזה הדבקתם את המילה החדשה למח.</p>
+<p>אל תשלו עצמכם, זה לא נדבק לנצח ויבוא צורך לחזור על הפעולה שוב, אבל תווך הזכרון גדל באופן תהומי מאשר אם גורסים מילים כצירוף צלילים מיקרי.</p>
+<p>דרך שיטה זו ניתן בעיקר לזכור את שורש המילה, בכדי לזכור אותה ככתיבתה או כהגייתה באופן מדוייק צריך להוסיף לה סימן מלאכותי המקשר אותה כצורתה, כגון אם באנו לזכור beard -זקן, נדמיין ציפור- bird  (שהגייתו כמעט זהה) עם זקן, בזה נזכור הגייתה באופן מדוייק. זה שטח אישי, וכל אחד יקשר למה שמוכר לו, וניתן גם לדלג על זה ולזכור דרך השורש בלבד ובשאר להסתמך על זכרון הטבעי (ללא סימנים).</p>
+</div>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="mobile-sidebar-toggle" id="mobileSidebarBtn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-list"></i> רשימת מילים
+    </button>
+
+    <footer>
+        <p><a href="#" class="footer-donate-link" onclick="alert('בקרוב נוסיף כאן אפשרות לתרומה. תודה על הרצון הטוב!')">נהנים מהמילון? נשמח לתמיכתכם! היו שותפים להרחבת המילון ופיתוח האתר</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-light);">© 2026 כל הזכויות שמורות למפתח השפות</p>
+    </footer>
+
+    <!-- Load data first -->
+    <script src="data.js"></script>
+    <!-- Load app logic -->
+    <script src="app.js"></script>
+</body>
+</html>
