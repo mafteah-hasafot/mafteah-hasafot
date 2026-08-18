@@ -22462,5 +22462,28 @@ const dictionaryData = [
     "decoding": "w<span style=\"font-size: 1.17em;\"><strong>ro</strong></span>-ngברע",
     "expansion": "",
     "beginner": "<strong>מבנה המילה והשורש:</strong>\\nהמילה wrong (מעוות, רע) מורכבת מהשורש wro והסיומת ng. הצליל והמשמעות מתקשרים היטב למושג העברי 'ברע' או לחילופין לשורש ר.ע באופן ישיר.\\n\\nהתפתחות המשמעות:\\nפעולה או דבר שמוגדרים כ'רעים' או 'מעוותים' מנוגדים לטוב ולנכון. מתוך כך התפתחה המילה לתאר כל דבר שגוי, מקולקל או לא צודק, בניגוד לצדק ולנורמה התקינה."
+  },
+  {
+    "id": 1421,
+    "pairs": [
+      {
+        "translation": "אוֹכְלֵי בָּשָׂר",
+        "english": "carnivore",
+        "english_plain": "carnivore"
+      },
+      {
+        "translation": "בְּשָׂרִי, גּוּפָנִי, גַּשְׁמִי, חוּשָׁנִי",
+        "english": "carnal",
+        "english_plain": "carnal"
+      },
+      {
+        "translation": "מסעדת טורטיות והמבורגר בבאר שבע",
+        "english": "CARNIBOSS",
+        "english_plain": "CARNIBOSS"
+      }
+    ],
+    "decoding": "carni-vore  carn-al     CARNI-BOSS",
+    "expansion": "אכלתם טורטייה ב-CARNIBOSS  בוס הבשרים,<br>כבר לא תשכחו ששורש carn מציין בשר וחוש.",
+    "beginner": "הכל פשוט מאוד : מגיעים לבאר שבע רחוב העלייה 9 או מזמינים בטל: 08-6565838 <br>נהנים מטורטייה טובה ושוב לא תשכחו טעם זה בחיים 😊"
   }
 ];
