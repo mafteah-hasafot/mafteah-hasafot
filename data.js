@@ -141,7 +141,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "אבה = רצה - ציית",
-    "expansion": "המשרת שמקבל פקודה ומציית מה אומר ? ברצון!        אובה = רוצה - obey",
+    "expansion": "המשרת שמקבל פקודה ומציית מה אומר ? ברצון!        אובה = רוצה - obey<br><br><img src=\"images/image1.png\" class=\"dictionary-image\" alt=\"image1.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>המילה obey קרובה למילה העברית 'אבה' (רצה).<br><strong>התפתחות המשמעות:</strong><br>ציות אמיתי נובע מרצון ('אבה'). כמו משרת שמקבל פקודה ועושה אותה בחפץ לב וברצון."
   },
   {
@@ -208,7 +208,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "סק=עלה",
-    "expansion": "פיענוח שמקיף את שלושת המילים הוא ליחס אותם לשורש <span style=\"font-size: 1.17em;\"><strong>סק</strong></span> שענינו עלייה (לה<strong>סיק </strong>מסקנה=להעלות מסקנה , מ<strong>סוק</strong> - על שם שהוא עולה ) . מעתה <br><u><strong>sky</strong></u><strong> - שמיים </strong>על שם שהם למעלה <strong>ועולים</strong> אליהם.<br><u>a</u><u><strong>sc</strong></u><u>end</u> - עלה , שורשו העיקרי הוא - <strong>sc</strong> , a-תחילית , d-תוספת שגרתית , ו-n אע''פ שנראית כחלק מן השורש , אינה אלא תוספת , שלפעמים נוספת נ בסוף המילה.<br>ועל דרך זה מילה de-<strong>sc</strong>en-d -ירד, כאשר תחילית de כאן מתפרשת כשלילה ושלילת עלייה הוא ירידה .<br>ניתן לייחס מילים a<strong>scen</strong>d ו-de<strong>scen</strong>d  לשורש <strong>סכן</strong>(מ<strong>סכן</strong>) ונפרשן בדרך הפוכה de<strong>scen</strong>d : הוא כמו להתמ<strong>סכן</strong> = לרדת מנכסיו או כל ירידה אחרת ו- de תתפרש כחיזוק (תחילית de  יש לה שני תרגומים הפוכים , חיזוק ושלילה) ,ומילה",
+    "expansion": "פיענוח שמקיף את שלושת המילים הוא ליחס אותם לשורש <span style=\"font-size: 1.17em;\"><strong>סק</strong></span> שענינו עלייה (לה<strong>סיק </strong>מסקנה=להעלות מסקנה , מ<strong>סוק</strong> - על שם שהוא עולה ) . מעתה <br><u><strong>sky</strong></u><strong> - שמיים </strong>על שם שהם למעלה <strong>ועולים</strong> אליהם.<br><u>a</u><u><strong>sc</strong></u><u>end</u> - עלה , שורשו העיקרי הוא - <strong>sc</strong> , a-תחילית , d-תוספת שגרתית , ו-n אע''פ שנראית כחלק מן השורש , אינה אלא תוספת , שלפעמים נוספת נ בסוף המילה.<br>ועל דרך זה מילה de-<strong>sc</strong>en-d -ירד, כאשר תחילית de כאן מתפרשת כשלילה ושלילת עלייה הוא ירידה .<br>ניתן לייחס מילים a<strong>scen</strong>d ו-de<strong>scen</strong>d  לשורש <strong>סכן</strong>(מ<strong>סכן</strong>) ונפרשן בדרך הפוכה de<strong>scen</strong>d : הוא כמו להתמ<strong>סכן</strong> = לרדת מנכסיו או כל ירידה אחרת ו- de תתפרש כחיזוק (תחילית de  יש לה שני תרגומים הפוכים , חיזוק ושלילה) ,ומילה<br><br><img src=\"images/image2.png\" class=\"dictionary-image\" alt=\"image2.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>השורש העיקרי הוא sc, המקביל לשורש העברי 'סק' (כמו במסוק, או להסיק מסקנה).<br><strong>התפתחות המשמעות:</strong><br>שורש זה מציין עלייה וטיפוס למעלה. מסיבה זו גם המילה sky (שמיים) נגזרת מאותו שורש משום שהם נמצאים למעלה."
   },
   {
@@ -321,7 +321,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "<u>ע</u>ל <u>בו</u>",
-    "expansion": "אין כוונתי בזה לבנות תומך זכרון ,רק להציע דרך אפשרית להראות קשר בין השפות .<br>הנה מילה <strong>על</strong> קוצרה גם בארמית ל-<strong>א</strong> (ארישא = על הראש) וכן באנגלית <strong>a</strong> (prep) תרגומו <strong>על</strong> וברוסית <strong>o</strong> . נמצא שעיקר השורש של מילה about  הוא a . (יש באמת להתבונן האם למד במילה <strong>ע</strong><span style=\"font-size: 1.17em;\"><strong>ל</strong></span><span style=\"font-size: 1.17em;\"> </span>הוא חלק מעיקר השורש או שמורה רק על יחס (אני לדודי = אני שייכת לדודי) ועיקר השורש הוא ע בלבד, ולפי זה הקיצור אשר בשאר שפות הוא בעצם לקיחת עיקר השורש )<br>מילה על או על אודות ברוסית מופיע בכמה אופנים o, ob, obo-  , ובדומה לזה באנגלית <span style=\"font-size: 1.17em;\"><strong>abo</strong></span>ut כאשר t  (abou<span style=\"font-size: 1.17em;\"><strong>t</strong></span>)הוא תוספת אופיינית לאנגלית . ניתן לאמר שיש כאן הרכבה של מילה <strong>על</strong> ו-<strong>בו</strong> ,כלומר <strong>על</strong> מה שיש <strong>בו</strong> (לדבר על ים = לדבר על מה שיש בו ) וקיצורו abo  . <br>תרגום הנוסף של המילה שהוא : קרוב ל..., אצל ,בסביבות , גם הוא מקביל לעברית שמילה <strong>על</strong> מופיע בתנ''ך גם במובן זה ,לדוגמא ועליו מטה מנשה שפירושו סמוך אליו, אצלו .",
+    "expansion": "אין כוונתי בזה לבנות תומך זכרון ,רק להציע דרך אפשרית להראות קשר בין השפות .<br>הנה מילה <strong>על</strong> קוצרה גם בארמית ל-<strong>א</strong> (ארישא = על הראש) וכן באנגלית <strong>a</strong> (prep) תרגומו <strong>על</strong> וברוסית <strong>o</strong> . נמצא שעיקר השורש של מילה about  הוא a . (יש באמת להתבונן האם למד במילה <strong>ע</strong><span style=\"font-size: 1.17em;\"><strong>ל</strong></span><span style=\"font-size: 1.17em;\"> </span>הוא חלק מעיקר השורש או שמורה רק על יחס (אני לדודי = אני שייכת לדודי) ועיקר השורש הוא ע בלבד, ולפי זה הקיצור אשר בשאר שפות הוא בעצם לקיחת עיקר השורש )<br>מילה על או על אודות ברוסית מופיע בכמה אופנים o, ob, obo-  , ובדומה לזה באנגלית <span style=\"font-size: 1.17em;\"><strong>abo</strong></span>ut כאשר t  (abou<span style=\"font-size: 1.17em;\"><strong>t</strong></span>)הוא תוספת אופיינית לאנגלית . ניתן לאמר שיש כאן הרכבה של מילה <strong>על</strong> ו-<strong>בו</strong> ,כלומר <strong>על</strong> מה שיש <strong>בו</strong> (לדבר על ים = לדבר על מה שיש בו ) וקיצורו abo  . <br>תרגום הנוסף של המילה שהוא : קרוב ל..., אצל ,בסביבות , גם הוא מקביל לעברית שמילה <strong>על</strong> מופיע בתנ''ך גם במובן זה ,לדוגמא ועליו מטה מנשה שפירושו סמוך אליו, אצלו .<br><br><img src=\"images/image3.png\" class=\"dictionary-image\" alt=\"image3.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>המילה מורכבת מ-a (על) ו-bo (בו).<br><strong>התפתחות המשמעות:</strong><br>לדבר על נושא מסוים משמעו לדבר על מה שיש 'בו'. כמו כן, המשמעות של 'בסביבות' מקבילה לשימוש במקרא שבו המילה 'על' מציינת קרבה (לדוגמה 'ועליו מטה מנשה' - כלומר סמוך אליו)."
   },
   {
@@ -438,7 +438,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "a     cid<br>לא צדה אלא אונה במקרה",
-    "expansion": "a(c)-<span style=\"font-size: 1.33em;\"><strong>c</strong></span>i<span style=\"font-size: 1.17em;\"><strong>d</strong></span>-ent    הדגשתי את השורש והוא מקביל לשורש <span style=\"font-size: 1.17em;\"><strong>צד</strong></span>ה בהקשר הבא  <br>לא צדה פירושו לא עשה בכוונה אלא קרתה כאן <strong>תאונה</strong> , כביכול <strong>מקרה</strong> או  accident.<br>תחילית a תרגומה כאן <strong>אי</strong> או <strong>לא</strong> <br>c הוכפלה בגלל הוספת תחילית, ומכח כללי הקריאה, c הראשונה נקראת ק, ושנייה שלפני i - s.",
+    "expansion": "a(c)-<span style=\"font-size: 1.33em;\"><strong>c</strong></span>i<span style=\"font-size: 1.17em;\"><strong>d</strong></span>-ent    הדגשתי את השורש והוא מקביל לשורש <span style=\"font-size: 1.17em;\"><strong>צד</strong></span>ה בהקשר הבא  <br>לא צדה פירושו לא עשה בכוונה אלא קרתה כאן <strong>תאונה</strong> , כביכול <strong>מקרה</strong> או  accident.<br>תחילית a תרגומה כאן <strong>אי</strong> או <strong>לא</strong> <br>c הוכפלה בגלל הוספת תחילית, ומכח כללי הקריאה, c הראשונה נקראת ק, ושנייה שלפני i - s.<br><br><img src=\"images/image4.png\" class=\"dictionary-image\" alt=\"image4.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>השורש cid מזכיר את השורש העברי 'צדה' (כמו 'אשר לא צדה' במקרא, כלומר לא תכנן מראש).<br><strong>התפתחות המשמעות:</strong><br>התחילית a (אי/לא) והשורש cid מבטאים משהו ש'לא תוכנן' מראש וללא כוונת זדון, ולכן התרחש כתאונה או כמקרה בלתי צפוי."
   },
   {
@@ -1098,7 +1098,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "an-ger  מטיל פחד - י<strong>גר</strong> ; <span style=\"font-size: 1.17em;\"><strong>אינו</strong></span><span style=\"font-size: 1.17em;\"> </span><span style=\"font-size: 1.17em;\"><strong>רג</strong></span>וע",
-    "expansion": "אדם <strong>כועס</strong> מטיל <strong>פחד</strong> על אחרים , לא ת<strong>גור</strong>ו = לא תפחדו , כי י<strong>גור</strong>תי = פחדתי.<br>ועל דרך סימן : זה <strong>שכועס</strong> הוא <strong>אינו גר</strong> אלא אזרח ותיק שמרשה לעצמו להתעצבן.",
+    "expansion": "אדם <strong>כועס</strong> מטיל <strong>פחד</strong> על אחרים , לא ת<strong>גור</strong>ו = לא תפחדו , כי י<strong>גור</strong>תי = פחדתי.<br>ועל דרך סימן : זה <strong>שכועס</strong> הוא <strong>אינו גר</strong> אלא אזרח ותיק שמרשה לעצמו להתעצבן.<br><br><img src=\"images/image5.png\" class=\"dictionary-image\" alt=\"image5.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>המילה מזכירה את השורש העברי י.ג.ר (פחד, כמו 'יגורתי').<br><strong>התפתחות המשמעות:</strong><br>אדם הנמצא בהתקף של כעס מטיל אימה ופחד (מטיל 'מגור') על סביבתו. על דרך המליצה, הוא כמו מי שאינו 'גר' בשלווה אלא מתפרץ."
   },
   {
@@ -1271,7 +1271,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "a-(p)<span style=\"font-size: 1.17em;\"><strong>par</strong></span>-ent   <span style=\"font-size: 1.17em;\"><strong>פר</strong></span>וע; <span style=\"font-size: 1.17em;\"><strong>בר</strong></span>ור",
-    "expansion": "שני קישורים אמת שגם בעברית דמיון השורשים מורה על קשר ביניהם, שהרי <strong>פרוע</strong> זה מגולה ודבר שהוא מגולה ואין עליו מסווה הוא דבר <strong>ברור</strong>.",
+    "expansion": "שני קישורים אמת שגם בעברית דמיון השורשים מורה על קשר ביניהם, שהרי <strong>פרוע</strong> זה מגולה ודבר שהוא מגולה ואין עליו מסווה הוא דבר <strong>ברור</strong>.<br><br><img src=\"images/image6.png\" class=\"dictionary-image\" alt=\"image6.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>שורש המילה par קשור למושג 'פרוע' או 'ברור'.<br><strong>התפתחות המשמעות:</strong><br>כמו ששיער 'פרוע' הוא גלוי לעין ואין עליו כיסוי, כך דבר שהוא גלוי וחשוף הופך להיות ברור וידוע לכולם."
   },
   {
@@ -1472,7 +1472,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "ארג",
-    "expansion": "<strong>אריגה</strong> הוא חיבור חוטים מתאימים ליצירת בד חזק, והוא כמשל שממנו נגזר מובן מופשט של <strong>טענה ונימוק</strong> שהוא חיבור פרטים וסברות מתאימות ליצירת הוכחה חזקה, כעין אריגת פרטים לבד יציב.<br>שוב פגשתי רעיון זה בספרי קדמונים, הא לכם קטע מדברי רש''י :<br>תרגום: תיקון דיבור קוראים לו אנשים אריגה.",
+    "expansion": "<strong>אריגה</strong> הוא חיבור חוטים מתאימים ליצירת בד חזק, והוא כמשל שממנו נגזר מובן מופשט של <strong>טענה ונימוק</strong> שהוא חיבור פרטים וסברות מתאימות ליצירת הוכחה חזקה, כעין אריגת פרטים לבד יציב.<br>שוב פגשתי רעיון זה בספרי קדמונים, הא לכם קטע מדברי רש''י :<br>תרגום: תיקון דיבור קוראים לו אנשים אריגה.<br><br><img src=\"images/image7.png\" class=\"dictionary-image\" alt=\"image7.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>המילה argue מזכירה את השורש העברי א.ר.ג (לארוג/אריגה).<br><strong>התפתחות המשמעות:</strong><br>כפי שאריגה היא פעולה של חיבור חוטים שונים ליצירת בד חזק ויציב, כך הבעת טיעון ונימוק היא פעולה מופשטת של אריגת פרטים וסברות לכדי הוכחה יציבה ומשכנעת."
   },
   {
@@ -1526,7 +1526,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "a-roun-d      ע<strong>רימ</strong>ה; גו<span style=\"font-size: 1.17em;\"><strong>רן</strong></span>",
-    "expansion": "<strong>גורן</strong> מופיע בתנ''ך כדוגמא של דבר עגול. קושרים את הפרות באמצע והנה הולכות סביב סביב ודשות את התבואה. ג (של<span style=\"font-size: 1.17em;\"><strong> </strong></span><span style=\"font-size: 1.17em;\"><strong>ג</strong></span>ורן) נהפכת ל-ה ושוב נעלמת ונשאר שורש <strong>roun</strong>, ושוב נוספת d תוספת שגרתית בשפה האנגלית.",
+    "expansion": "<strong>גורן</strong> מופיע בתנ''ך כדוגמא של דבר עגול. קושרים את הפרות באמצע והנה הולכות סביב סביב ודשות את התבואה. ג (של<span style=\"font-size: 1.17em;\"><strong> </strong></span><span style=\"font-size: 1.17em;\"><strong>ג</strong></span>ורן) נהפכת ל-ה ושוב נעלמת ונשאר שורש <strong>roun</strong>, ושוב נוספת d תוספת שגרתית בשפה האנגלית.<br><br><img src=\"images/image8.png\" class=\"dictionary-image\" alt=\"image8.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>השורש roun מזכיר את המילה 'גורן' (בהנחה שה-ג' נחלשה ונעלמה עם הזמן).<br><strong>התפתחות המשמעות:</strong><br>הגורן החקלאי היה מקום עגול (round) שבו פעלו בעלי החיים סביב-סביב, ומכאן המושג של משהו שמקיף, עגול ונמצא 'מסביב'."
   },
   {
@@ -3111,7 +3111,7 @@ const dictionaryData = [
       }
     ],
     "decoding": "<strong>pic</strong>-ture  ה<strong>פק</strong>ה",
-    "expansion": "הצייר עובד על יצירתו ולבסוף מוציאה לאור עולם, א''כ אפשר לקרוא לציורו ת<strong>פוק</strong>ה שלו. להפיק = להוציא.",
+    "expansion": "הצייר עובד על יצירתו ולבסוף מוציאה לאור עולם, א''כ אפשר לקרוא לציורו ת<strong>פוק</strong>ה שלו. להפיק = להוציא.<br><br><img src=\"images/image9.png\" class=\"dictionary-image\" alt=\"image9.png\">",
     "beginner": "<strong>מבנה המילה והשורש:</strong><br>מורכב מהשורש pic וסיומת ture. השורש pic עשוי להתקשר לשורש העברי פ.ו.ק (הפקה).<br><strong>התפתחות המשמעות:</strong><br>צייר עובד על יצירתו ו'מפיק' אותה (מוציא אותה לאור העולם מהדמיון אל הקנבס). התוצר המופק, התפוקה החזותית של האמן, היא הציור והתמונה כפי שאנו מכירים אותם."
   },
   {
